@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 public class ApplicationLogs extends ArrayList<IApplicationLog> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public ApplicationLogs() {		
 	}
 	
