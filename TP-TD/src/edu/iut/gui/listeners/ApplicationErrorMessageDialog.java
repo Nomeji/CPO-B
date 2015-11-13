@@ -6,8 +6,9 @@ public class ApplicationErrorMessageDialog extends
 		AbstractApplicationMessageDialog {
 
 	@Override
+	//affiche un message d'erreur
 	protected void showMessage(String level, String message) {
-		/** UTILISER l'AIDE FORUNIR DANS L'ENNONCE */
+		System.out.println(level+" "+message);
 	}
 
 }

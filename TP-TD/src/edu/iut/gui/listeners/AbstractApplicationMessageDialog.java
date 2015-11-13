@@ -5,11 +5,17 @@ import edu.iut.app.IApplicationLogListener;
 public abstract class AbstractApplicationMessageDialog implements
 		IApplicationLogListener {
 
+	//Attribut
+	protected String message;
+	
+	
 	@Override
 	public void newMessage(String level, String message) {
-	 /* TP1 : CODE A FOURNIR */*
+		this.message=message;
+		showMessage(message);
 	}
 	
 	/* TP1 ajouter une méthode abstraite showMessage */
+	protected abstract void showMessage(String message);
 
 }

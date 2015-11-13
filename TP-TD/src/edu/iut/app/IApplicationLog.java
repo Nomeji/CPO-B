@@ -1,5 +1,7 @@
 package edu.iut.app;
 
+import java.util.ArrayList;
+
 public interface IApplicationLog {
 	/** TP1 : Créérr les méthodes :
 	 - setMessage
@@ -10,5 +12,5 @@ public interface IApplicationLog {
 	void setMessage(String message);
 	String getMessage();
 	void addListener(IApplicationLogListener listener);
-	IApplicationLogListener[] getapplicationLogListeners();
+	ArrayList<IApplicationLogListener> getapplicationLogListeners();
 }

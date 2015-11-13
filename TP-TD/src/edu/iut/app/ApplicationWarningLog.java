@@ -33,7 +33,6 @@ public class ApplicationWarningLog extends AbstractApplicationLog {
 
 	@Override
 	public void setMessage() {
-		// TODO Auto-generated method stub
 		
 	}
 }
