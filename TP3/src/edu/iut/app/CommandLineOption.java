@@ -1,6 +1,6 @@
 package edu.iut.app;
 
-public class CommandLineOption<ValueType> /* EX1 : CLASSE GENERIC SUR le type ValueType */ {
+public class CommandLineOption<T> /* EX1 : CLASSE GENERIC SUR le type ValueType */ {
 	
 	public enum OptionType{
 		NONE("None"),
@@ -21,23 +21,17 @@ public class CommandLineOption<ValueType> /* EX1 : CLASSE GENERIC SUR le type Va
 		}		
 	}
 	
-	public class ValueType<Z> {
-		protected Z value;
-		public ValueType(Z value){
-			this.value = value;
-		}
-	}
-	
 	public CommandLineOption() {		
 		/* EX1: Initializer les attributs */
 		this.optionType = OptionType.NONE;
 		this.key="";
 		this.description="";
 		//this.defaultValue;
+		this.defaultValue=new ValueType<T>(type);
 		this.value = this.defaultValue;
 		
 	}
-	public CommandLineOption(final OptionType optionType, final String key, final String description, final ValueType defaultValue) {
+	public CommandLineOption(final OptionType optionType, final String key, final String description, final ValueType<T> defaultValue) {
 		/* EX1 : Affecter les attributs */
 		this.optionType=optionType;
 		this.key=key;
@@ -46,7 +40,7 @@ public class CommandLineOption<ValueType> /* EX1 : CLASSE GENERIC SUR le type Va
 		this.value = defaultValue;
 		
 	}
-	public void setOption(OptionType optionType, String key, String description, ValueType defaultValue) {
+	public void setOption(OptionType optionType, String key, String description, ValueType<T> defaultValue) {
 		/* EX1 : Affecter les attributs */
 		this.optionType=optionType;
 		this.key=key;
@@ -54,8 +48,8 @@ public class CommandLineOption<ValueType> /* EX1 : CLASSE GENERIC SUR le type Va
 		this.defaultValue=defaultValue;
 		this.value = defaultValue;
 	}
-	public  void setValue(ValueType value) {
-		this.value = value;
+	public void setValue(T value) {
+		this.value=new ValueType<T>(value);
 	}
 		
 	public String getKey() {
@@ -64,7 +58,7 @@ public class CommandLineOption<ValueType> /* EX1 : CLASSE GENERIC SUR le type Va
 	public String getDescription() {
 		return this.description;
 	}
-	public ValueType getValue() {
+	public ValueType<T> getValue() {
 		if (value != null) {
 			return value;
 		}
@@ -76,9 +70,9 @@ public class CommandLineOption<ValueType> /* EX1 : CLASSE GENERIC SUR le type Va
 
 	protected String key;
 	protected String description;
-	protected ValueType defaultValue;
-	protected ValueType value;
+	protected ValueType<T> defaultValue;
+	protected ValueType<T> value;
 	protected OptionType optionType;
-	
+	protected T type;
 
 }
