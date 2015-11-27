@@ -63,5 +63,16 @@ public class ExamEvent {
 	public void setDocuments(ArrayList<Document> documents) {
 		this.documents = documents;
 	}
+	
+	public ArrayList<ExamEvent> meetCriteria(ArrayList<ExamEvent> exams,Date date) {
+		ArrayList<ExamEvent> dateExam = new ArrayList<ExamEvent>();
+		
+		for(ExamEvent examEvent : exams){
+			if(examEvent.getExamDate() == date){
+				dateExam.add(examEvent);
+			}
+		}
+		return dateExam;
+	}
 	 
 }

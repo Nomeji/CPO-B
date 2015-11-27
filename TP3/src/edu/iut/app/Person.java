@@ -1,6 +1,8 @@
 package edu.iut.app;
 
-public class Person {
+import java.util.ArrayList;
+
+public class Person implements Critere {
 	
 	public enum PersonFunction{
 		/* EX2 : Internationalisation */
@@ -67,6 +69,17 @@ public class Person {
 	}
 	public String getPhone() {
 		return phone;
+	}
+	
+	public ArrayList<ExamEvent> meetCriteria(ArrayList<ExamEvent> exams,String firstname) {
+		ArrayList<ExamEvent> person = new ArrayList<ExamEvent>();
+		
+		for(ExamEvent examEvent : exams){
+			if(examEvent.getStudent().getFirstname().equalsIgnoreCase(firstname)){
+				person.add(examEvent);
+			}
+		}
+		return person;
 	}
 
 	
