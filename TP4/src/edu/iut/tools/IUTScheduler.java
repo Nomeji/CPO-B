@@ -1,5 +1,6 @@
 package edu.iut.tools;
 
+import java.io.File;
 import java.util.Locale;
 
 import edu.iut.app.CommandLineOption;
