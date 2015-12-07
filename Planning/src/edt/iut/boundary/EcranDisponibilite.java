@@ -12,6 +12,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import edt.iut.control.*;
+import edt.iut.entity.Connexion;
 
 public class EcranDisponibilite {
 	private ControleurDisponibilite sonControleur;
@@ -32,8 +33,8 @@ public class EcranDisponibilite {
 	
 	private JButton show;
 	
-	public EcranDisponibilite(){
-		sonControleur  = new ControleurDisponibilite(this);
+	public EcranDisponibilite(Connexion co){
+		sonControleur  = new ControleurDisponibilite(this,co);
 		
 		fenetre = new JFrame("Choix de la disponibilité"); // On initialise la fenêtre
 		panel = new JPanel();
@@ -76,8 +77,5 @@ public class EcranDisponibilite {
 
 	public String getHour() {
 		return hour.getText();
-	}
-	public static void main(String args[]){
-		EcranDisponibilite choix = new EcranDisponibilite();
 	}
 }
