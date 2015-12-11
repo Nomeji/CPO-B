@@ -35,7 +35,7 @@ public class IUTScheduler {
 		commandLineParser.parse(args);
 		
 		
-		
+
 		System.err.println("Option:"+commandLineParser.getOption("config").getValue());
 		SwingUtilities.invokeLater(new Runnable() {
 		    public void run() {

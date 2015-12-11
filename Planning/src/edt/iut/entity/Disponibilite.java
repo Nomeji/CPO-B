@@ -1,20 +1,20 @@
 package edt.iut.entity;
 
-import org.jdatepicker.impl.UtilDateModel;
+import java.util.Date;
 
 public class Disponibilite {
-	private UtilDateModel jourDispo;
+	private Date jour;
 	private String hour;
 	private Acteur sonActeur;
 	
-	public Disponibilite(UtilDateModel jourDispo,String hour,Acteur acteur){
-		this.jourDispo = jourDispo;
+	public Disponibilite(Date jour,String hour,Acteur acteur){
+		this.jour = jour;
 		this.hour = hour;
 		sonActeur = acteur;
 	}
 
-	public UtilDateModel getJourDispo() {
-		return jourDispo;
+	public Date getJour() {
+		return jour;
 	}
 
 	public String getHour() {

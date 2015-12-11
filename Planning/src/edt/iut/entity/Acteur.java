@@ -1,5 +1,9 @@
 package edt.iut.entity;
 
+import java.util.ArrayList;
+
+import edt.iut.entity.Connexion;
+
 public abstract class Acteur {
 	private int idActeur;
 	private String nom;
@@ -7,6 +11,7 @@ public abstract class Acteur {
 	private String password;
 	private String numTel;
 	private Connexion saConnexion;
+	private ArrayList<Disponibilite> dispo;
 	
 	public Acteur(int idActeur, String nom, String prenom, String password, String numTel,Connexion co) {
 		super();
@@ -16,6 +21,7 @@ public abstract class Acteur {
 		this.password = password;
 		this.numTel = numTel;
 		saConnexion = co;
+		dispo = new ArrayList<Disponibilite>();
 	}
 
 	public String getNom() {
@@ -25,4 +31,14 @@ public abstract class Acteur {
 	public String getPrenom() {
 		return prenom;
 	}
+
+	public ArrayList<Disponibilite> getDispo() {
+		return dispo;
+	}
+	
+	public void addDispo(Disponibilite d){
+		dispo.add(d);
+	}
+
+
 }

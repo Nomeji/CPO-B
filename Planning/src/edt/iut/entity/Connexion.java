@@ -17,7 +17,7 @@ public class Connexion { // Simulateur de connexion
 	}
 	
 	public static void main(String args[]){
-		Connexion co = new Connexion("etudiant",1,"Flantier","Noël","blanquette","01010101","3B1","noel@oss.fr");
+		Connexion co = new Connexion("etudiant",1,"Flantier","Noel","blanquette","01010101","3B1","noel@oss.fr");
 		EcranDisponibilite choix = new EcranDisponibilite(co);
 	}
 

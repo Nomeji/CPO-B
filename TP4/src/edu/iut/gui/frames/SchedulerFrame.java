@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -14,11 +17,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+import edu.iut.app.ExamEvent;
 import edu.iut.gui.listeners.*;
 
 import edu.iut.gui.widget.agenda.AgendaPanelFactory;
 import edu.iut.gui.widget.agenda.ControlAgendaViewPanel;
 import edu.iut.gui.widget.agenda.AgendaPanelFactory.ActiveView;
+import edu.iut.io.AppStateReader;
+import edu.iut.io.AppStateWriter;
+import edu.iut.io.XMLProjectReader;
+import edu.iut.io.XMLProjectWriter;
 
 
 public class SchedulerFrame extends JFrame {
@@ -28,6 +36,7 @@ public class SchedulerFrame extends JFrame {
 	JPanel dayView;
 	JPanel weekView;
 	JPanel monthView;
+	final static String ADDSAUVE="/tmp/t.tmp";
 	
 	protected void setupUI() {
 		
@@ -58,6 +67,14 @@ public class SchedulerFrame extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				XMLProjectReader reader = new XMLProjectReader();
+				try {
+					AppStateWriter output = new AppStateWriter(,"/tmp/save.xml",ADDSAUVE)
+					reader.load(new File("/tmp/save.xml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null, "Not yet implemented", "info", JOptionPane.INFORMATION_MESSAGE, null);		
 			}			
 		});
@@ -67,6 +84,15 @@ public class SchedulerFrame extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				XMLProjectWriter writer = new XMLProjectWriter();
+				try {
+				 	AppStateReader input = new AppStateReader(ADDSAUVE);
+				 	ExamEvent exams = (ExamEvent) input.readObject();
+					writer.save(new File("/tmp/save.xml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null, "Not yet implemented", "info", JOptionPane.INFORMATION_MESSAGE, null);		
 			}			
 		});
